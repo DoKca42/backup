@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 14:10:55 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/05 14:10:58 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/03 17:49:31 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/03 17:49:49 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int ft_srctlen(char *src)
+#include <unistd.h>
+
+unsigned	int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	unsigned int	i;
+	int	i;
+	int	a;
 
 	i = 0;
-	while (src[i])
-		i++;
-
-	return (i);
-}
-
-unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
-{
-	unsigned int	a;
-	unsigned int	b;
-	int				c;
-
 	a = 0;
-	b = 0;
-	while (dest[a])
-		a++;
-	if(size == 0 || a <= size)
-		return (a + ft_srctlen(src));
-	while (src[b] && b < (size - 1))
+	while (src[i])
 	{
-		dest[a + b] = src[b];
-		b++;
+		i++;
 	}
-	dest[a + b] = '\0';
-
-	return (a + (ft_srctlen(src) - b));
+	while (src[a] && a < (size - 1) && a != 0)
+	{
+		dest[a] = src[a];
+		a++;
+	}
+	dest[a] = '\0';
+	return (i);
 }

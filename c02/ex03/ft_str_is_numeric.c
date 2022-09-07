@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 20:29:41 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/06 20:36:45 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/02 10:38:09 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/02 10:45:28 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recu_fact(int nb, int res)
+#include <unistd.h>
+
+int	ft_str_is_numeric(char *str)
 {
-	if (nb > 0)
+	int		alpha;
+	int		i;
+	char	a;
+
+	alpha = 1;
+	i = 0;
+	while (str[i])
 	{
-		if (res == 0)
-				res = nb;
-			else
-				res = res * nb;
-			nb--;
-		res = ft_recu_fact(nb, res);
+		a = str[i];
+		if (!(a >= '0' && a <= '9'))
+		{
+			alpha = 0;
+		}
+		i++;
 	}
-	return (res);
-}
-
-int ft_recursive_factorial(int nb)
-{
-	int	res;
-
-	res = 0;
-	if (nb < 0)
-		return (0);
-	return (ft_recu_fact(nb, res));
+	return (alpha);
 }

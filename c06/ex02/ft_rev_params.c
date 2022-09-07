@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 20:29:41 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/06 20:36:45 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/07 20:46:06 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/07 20:46:08 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recu_fact(int nb, int res)
+#include <unistd.h>
+
+int	main(int argc, char **argv)
 {
-	if (nb > 0)
+	int		i;
+	int		a;
+	char	*str;
+
+	a = argc - 1;
+	while (a > 0)
 	{
-		if (res == 0)
-				res = nb;
-			else
-				res = res * nb;
-			nb--;
-		res = ft_recu_fact(nb, res);
+		i = 0;
+		str = argv[a];
+		while (str[i])
+		{
+			write(1, &str[i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+		a--;
 	}
-	return (res);
-}
-
-int ft_recursive_factorial(int nb)
-{
-	int	res;
-
-	res = 0;
-	if (nb < 0)
-		return (0);
-	return (ft_recu_fact(nb, res));
+	return (0);
 }

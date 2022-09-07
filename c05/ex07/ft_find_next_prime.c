@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 20:29:41 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/06 20:36:45 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/07 19:30:01 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/07 19:30:03 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recu_fact(int nb, int res)
+int ft_find_next_prime(int nb)
 {
-	if (nb > 0)
+	int i;
+	int prime;
+
+	i = 2;
+	prime = nb;
+	if (nb <= 1)
+		prime = 0;
+	while (i < nb && prime != 0)
 	{
-		if (res == 0)
-				res = nb;
-			else
-				res = res * nb;
-			nb--;
-		res = ft_recu_fact(nb, res);
+		if (nb % i == 0)
+			prime = 0;
+		i++;
 	}
-	return (res);
+	if (prime == 0)
+	{
+		nb = nb + 1;
+		prime = ft_find_next_prime(nb);
+	}
+	return (prime);
 }
 
-int ft_recursive_factorial(int nb)
-{
-	int	res;
-
-	res = 0;
-	if (nb < 0)
-		return (0);
-	return (ft_recu_fact(nb, res));
-}

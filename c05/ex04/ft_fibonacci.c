@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 20:29:41 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/06 20:36:45 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/07 11:56:24 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/07 11:56:29 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recu_fact(int nb, int res)
+int ft_fibonacci_calc(int index, int pose, int res, int somme[3])
 {
-	if (nb > 0)
+	if (pose < index)
 	{
-		if (res == 0)
-				res = nb;
-			else
-				res = res * nb;
-			nb--;
-		res = ft_recu_fact(nb, res);
+		res = somme[0] + somme[1];
+		pose++;
+		somme[0] = somme[1];
+		somme[1] = res;
+		res = ft_fibonacci_calc(index, pose, res, somme);
 	}
+
 	return (res);
 }
 
-int ft_recursive_factorial(int nb)
+int	ft_fibonacci(int index)
 {
-	int	res;
-
-	res = 0;
-	if (nb < 0)
+	int res;
+	int somme[3];
+	if (index < 0)
+		return (-1);
+	if (index == 0)
 		return (0);
-	return (ft_recu_fact(nb, res));
+	somme[0] = 0;
+	somme[1] = 1;
+	res = ft_fibonacci_calc(index, 1, res, somme);
+	return (res);
 }

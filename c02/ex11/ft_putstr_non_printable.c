@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 20:27:07 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/06 20:27:09 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/03 18:09:45 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/03 18:09:50 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_recu_pow(int res, int nb, int power)
+#include <unistd.h>
+
+void	ft_putchar(char c)
 {
-	if (0 < power)
+	write(1, &c, 1);
+}
+
+void	ft_putstr_non_printable(char *str)
+{
+	int				i;
+	char			*basehex;
+	unsigned char	w;
+
+	i = 0;
+	basehex = "0123456789abcdef";
+	while (str[i])
 	{
-		if (res == 0)
-				res = nb;
-			else
-				res = res * nb;
-		power--;
-		res = ft_recu_pow(res, nb, power);
+		if (str[i] >= 32 && str[i] <= 126)
+		{
+			ft_putchar(str[i]);
+		}
+		else
+		{
+			w = (unsigned char)str[i];
+			ft_putchar('\\');
+			ft_putchar(basehex[w / 16]);
+			ft_putchar(basehex[w % 16]);
+		}
+		i++;
 	}
-	return (res);
 }
-
-int ft_recursive_power(int nb, int power)
-{
-	int	res;
-
-	res = 0;
-	if (power < 0)
-		return (0);
-	else if (power < 1)
-		return (1);
-	else
-		res = ft_recu_pow(res, nb, power);
-	if (0 < nb)
-		res = -res;
-	return (res);
-}
-
- 

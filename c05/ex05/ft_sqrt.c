@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 20:29:41 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/06 20:36:45 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/07 18:34:47 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/07 18:34:50 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recu_fact(int nb, int res)
+int ft_sqrt(int nb)
 {
-	if (nb > 0)
-	{
-		if (res == 0)
-				res = nb;
-			else
-				res = res * nb;
-			nb--;
-		res = ft_recu_fact(nb, res);
-	}
-	return (res);
-}
+	int a;
+	int b;
 
-int ft_recursive_factorial(int nb)
-{
-	int	res;
-
-	res = 0;
-	if (nb < 0)
+	b = nb;
+	a = 1;
+	if (nb < 1)
 		return (0);
-	return (ft_recu_fact(nb, res));
+	while (b > a)
+	{
+		b = (b + a) / 2;
+		a = nb / b;
+	}
+	if (b * b == nb)
+		return (b);
+	else
+		return (0);
 }
