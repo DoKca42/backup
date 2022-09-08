@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 17:49:31 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/03 17:49:49 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/08 18:09:36 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/08 18:09:40 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-unsigned	int	ft_strlcpy(char *dest, char *src, unsigned int size)
+int	ft_strlenloc(char *src)
 {
-	int	i;
-	int	a;
+	int i;
 
 	i = 0;
-	a = 0;
 	while (src[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(char *src)
+{
+	char	*m;
+	int		i;
+	int		sizesrc;
+
+	i = 0;
+	sizesrc = ft_strlenloc(src);
+	m = (char *)malloc(sizesrc * sizeof(char) + 1);
+	if (m == 0)
+		return (0);
+	while (i < sizesrc)
 	{
+		m[i] = src[i];
 		i++;
 	}
-	while (src[a] && a < (size - 1) && a != 0)
-	{
-		dest[a] = src[a];
-		a++;
-	}
-	dest[a] = '\0';
-	return (i);
+	m[i] = '\0';
+	return (m);
 }

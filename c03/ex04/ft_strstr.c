@@ -25,7 +25,7 @@ char	*ft_boolean_find(int a, char *to_find, char *str, char *findadd)
 			if (to_find[b] == str[a + b])
 				c++;
 			else
-				findadd = NULL;
+				findadd = 0;
 			b++;
 		}
 		if (c == b)
@@ -38,14 +38,13 @@ char	*ft_strstr(char *str, char *to_find)
 {
 	char	*findadd;
 	int		a;
-	int		b;
 
-	findadd = NULL;
+	findadd = 0;
 	a = 0;
 	while (str[a])
 	{
 		findadd = ft_boolean_find(a, to_find, str, findadd);
-		if (findadd != NULL)
+		if (findadd != 0)
 			return (findadd);
 		a++;
 	}
