@@ -12,6 +12,7 @@
 
 int ft_recu_pow(int res, int nb, int power)
 {
+	//printf("%d - %d - %d\n", res, nb, power);
 	if (0 < power)
 	{
 		if (res == 0)
@@ -35,8 +36,10 @@ int ft_recursive_power(int nb, int power)
 		return (1);
 	else
 		res = ft_recu_pow(res, nb, power);
-	if (0 < nb)
+	if (0 > nb)
+	{
 		res = -res;
+	}
 	return (res);
 }
 

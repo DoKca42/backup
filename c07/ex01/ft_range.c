@@ -10,20 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int *ft_range(int min, int max)
+#include <stdlib.h>
+
+int	*ft_range(int min, int max)
 {
 	int	i;
-	int *m;
+	int	*m;
 
 	i = 0;
+	if (min >= max)
+		return (0);
 	while ((min + i) < max)
 		i++;
-	m = (int *)malloc(sizeof(int) * i);
+	m = (int *)malloc(i * sizeof(int));
 	i = 0;
 	while ((min + i) < max)
 	{
+		m[i] = min + i;
 		i++;
 	}
-
-	return (0);
+	return (m);
 }

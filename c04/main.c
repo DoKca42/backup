@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "ex00/ft_strlen.c"
@@ -47,5 +48,6 @@ void ex05()
 
 int main()
 {
-	ex05();
+	ex03();
+	return (0);
 }

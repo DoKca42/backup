@@ -41,6 +41,7 @@ int	ft_checkstart_atoibase(char *str, int i, char *base, int size)
 	while (c == '\t' || c == '\n' || c == '\v'
 		|| c == '\f' || c == '\r' || c == ' ')
 		c = str[i++];
+	i -= 1;
 	while (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -58,10 +59,9 @@ int	ft_checkstart_atoibase(char *str, int i, char *base, int size)
 	return (res);
 }
 
-int	ft_base_check(char *base)
+int	ft_base_check(char *base, int *hash)
 {
 	int	i;
-	int	hash[129];
 	int	w;
 
 	i = 0;
@@ -86,9 +86,17 @@ int	ft_atoi_base(char *str, char *base)
 {
 	int	size;
 	int	i;
+	int	hash[129];
+	int	o;
 
+	o = 0;
+	while (o < 129)
+	{
+		hash[o] = 0;
+		o++;
+	}
 	i = 0;
-	size = ft_base_good(base);
+	size = ft_base_check(base, hash);
 	if (size != 0)
 		return (ft_checkstart_atoibase(str, i, base, size));
 	else

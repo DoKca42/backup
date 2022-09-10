@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
 void	ft_baseconvert(int nbr, char *base, int size)
 {
 	if (nbr > size)
@@ -17,10 +19,9 @@ void	ft_baseconvert(int nbr, char *base, int size)
 	write(1, &base[nbr % size], 1);
 }
 
-int	ft_base_good(char *base)
+int	ft_base_good(char *base, int *hash)
 {
 	int	i;
-	int	hash[129];
 	int	w;
 
 	i = 0;
@@ -44,8 +45,16 @@ int	ft_base_good(char *base)
 void	ft_putnbr_base(int nbr, char *base)
 {
 	int	size;
+	int	hash[129];
+	int	o;
 
-	size = ft_base_good(base);
+	o = 0;
+	while (o < 129)
+	{
+		hash[o] = 0;
+		o++;
+	}
+	size = ft_base_good(base, hash);
 	if (size != 0)
 	{
 		if (nbr < 0)
