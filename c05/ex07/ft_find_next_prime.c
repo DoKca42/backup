@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_find_next_prime(int nb)
+int	ft_find_next_prime(int nb)
 {
-	int i;
-	int prime;
+	int	i;
+	int	prime;
 
 	i = 2;
 	prime = nb;
@@ -32,4 +32,3 @@ int ft_find_next_prime(int nb)
 	}
 	return (prime);
 }
-

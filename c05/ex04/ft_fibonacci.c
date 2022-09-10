@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_fibonacci_calc(int index, int pose, int res, int somme[3])
+int	ft_fibonacci_calc(int index, int pose, int res, int somme[3])
 {
 	if (pose < index)
 	{
@@ -20,14 +20,15 @@ int ft_fibonacci_calc(int index, int pose, int res, int somme[3])
 		somme[1] = res;
 		res = ft_fibonacci_calc(index, pose, res, somme);
 	}
-
 	return (res);
 }
 
 int	ft_fibonacci(int index)
 {
-	int res;
-	int somme[3];
+	int	res;
+	int	somme[3];
+
+	res = 0;
 	if (index < 0)
 		return (-1);
 	if (index == 0)

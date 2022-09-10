@@ -15,16 +15,16 @@ int	ft_recu_fact(int nb, int res)
 	if (nb > 0)
 	{
 		if (res == 0)
-				res = nb;
-			else
-				res = res * nb;
+			res = nb;
+		else
+			res = res * nb;
 			nb--;
 		res = ft_recu_fact(nb, res);
 	}
 	return (res);
 }
 
-int ft_recursive_factorial(int nb)
+int	ft_recursive_factorial(int nb)
 {
 	int	res;
 

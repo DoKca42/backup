@@ -10,42 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_boolean_find(int a, char *to_find, char *str, char *findadd)
-{
-	int		b;
-	int		c;
-
-	b = 0;
-	if (str[a] == to_find[b])
-	{
-		c = 0;
-		findadd = &str[a];
-		while (to_find[b])
-		{
-			if (to_find[b] == str[a + b])
-				c++;
-			else
-				findadd = 0;
-			b++;
-		}
-		if (c == b)
-			return (findadd);
-	}
-	return (findadd);
-}
-
 char	*ft_strstr(char *str, char *to_find)
 {
 	char	*findadd;
 	int		a;
+	int		b;
 
 	findadd = 0;
 	a = 0;
 	while (str[a])
 	{
-		findadd = ft_boolean_find(a, to_find, str, findadd);
-		if (findadd != 0)
-			return (findadd);
+		b = 0;
+		while (str[a + b] && str[a + b] == to_find[b])
+			b++;
+		if (to_find[b] == '\0')
+			return (&str[a]);
 		a++;
 	}
 	return (findadd);
