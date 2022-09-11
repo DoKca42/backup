@@ -6,7 +6,7 @@
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 11:56:24 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/07 11:56:29 by loculy           ###   ########.fr       */
+/*   Updated: 2022/09/11 16:15:40 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_fibonacci(int index)
 		return (-1);
 	if (index == 0)
 		return (0);
+	if (index == 1)
+		return (1);
 	somme[0] = 0;
 	somme[1] = 1;
 	res = ft_fibonacci_calc(index, 1, res, somme);

@@ -6,7 +6,7 @@
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 20:03:15 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/06 20:03:18 by loculy           ###   ########.fr       */
+/*   Updated: 2022/09/11 16:02:59 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_iterative_power(int nb, int power)
 			power--;
 		}
 	}
-	if (nb < 0)
+	if (nb < 0 && power % 2 != 0)
 		res = -res;
 	return (res);
 }

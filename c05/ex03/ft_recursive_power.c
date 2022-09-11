@@ -6,7 +6,7 @@
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 20:27:07 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/06 20:27:09 by loculy           ###   ########.fr       */
+/*   Updated: 2022/09/11 16:05:15 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,5 @@ int	ft_recursive_power(int nb, int power)
 		return (1);
 	else
 		res = ft_recu_pow(res, nb, power);
-	if (0 > nb)
-		res = -res;
 	return (res);
 }
