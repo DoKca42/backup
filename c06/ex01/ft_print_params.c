@@ -19,17 +19,20 @@ int	main(int argc, char **argv)
 	char	*str;
 
 	a = 1;
-	while (argv[a])
+	if (argc != 0)
 	{
-		i = 0;
-		str = argv[a];
-		while (str[i])
+		while (argv[a])
 		{
-			write(1, &str[i], 1);
-			i++;
+			i = 0;
+			str = argv[a];
+			while (str[i])
+			{
+				write(1, &str[i], 1);
+				i++;
+			}
+			write(1, "\n", 1);
+			a++;
 		}
-		write(1, "\n", 1);
-		a++;
 	}
 	return (0);
 }
