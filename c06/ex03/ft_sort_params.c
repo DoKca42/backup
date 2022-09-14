@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	ft_argv_print(char **argv)
 {
@@ -19,7 +18,7 @@ void	ft_argv_print(char **argv)
 	int		i;
 	char	*str;
 
-	a = 0;
+	a = 1;
 	while (argv[a])
 	{
 		i = 0;
@@ -44,7 +43,6 @@ int	ft_argv_com(char *a, char *b)
 	while (a[i] && a[i] == b[i])
 		i++;
 	res = a[i] - b[i];
-	i = 0;
 	if (res > 0)
 		return (1);
 	else

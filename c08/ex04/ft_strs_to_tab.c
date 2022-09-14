@@ -12,7 +12,6 @@
 
 #include "ft_stock_str.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_str_len(char *w)
 {
@@ -47,7 +46,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	int					a;
 	struct s_stock_str	*stock_str;
 
-	stock_str = malloc(sizeof(stock_str) * (ac + 1));
+	stock_str = malloc(sizeof(struct s_stock_str) * (ac + 1));
 	if (stock_str == NULL)
 		return (NULL);
 	a = 0;
@@ -56,38 +55,10 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		stock_str[a].size = ft_str_len(av[a]);
 		stock_str[a].str = av[a];
 		stock_str[a].copy = ft_strct(av[a]);
-		
-		printf("%lu | %lu\n", (unsigned long)av[a], (unsigned long)ft_strct(av[a]));
 		a++;
 	}
 	stock_str[a].size = 0;
 	stock_str[a].str = 0;
 	stock_str[a].copy = 0;
 	return (stock_str);
-}
-
-int	main(void)
-{
-	int		i;
-	struct s_stock_str	*stock_str;
-	char				**strs;
-
-	strs = (char **)malloc(5 * sizeof(strs));
-	strs[0] = "Salut";
-	strs[1] = "testA testB testC";
-	strs[2] = "uuuu";
-	strs[3] = "Rhh Rhhh";
-	strs[4] = "Ahhhhhhhh";
-	stock_str = ft_strs_to_tab(5, strs);
-	printf("\n\n");
-	i = 0;
-	while (i < 5)
-	{
-		printf("Size : %d\n", stock_str[i].size);
-		printf("Str  : %s\n", stock_str[i].str);
-		printf("Copy : %s\n", stock_str[i].copy);
-		printf("\n");
-		i++;
-	}
-	return (0);
 }
