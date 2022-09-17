@@ -1,0 +1,2 @@
+Function : parsing_read
+	malloc tab (numbers.dict en tableau de unsigned char)

@@ -1,0 +1,15 @@
+0.	get la taille des listes 
+
+1.	lire que des chiffres
+		si inferieur a 1000 switch de list
+
+2.	skip caractere ':' & ' '
+
+3.	get la taille de string 
+
+a = 0;
+while (tab[i + a] != '\n')
+{
+
+	a++;
+}
