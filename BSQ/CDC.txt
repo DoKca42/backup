@@ -1,0 +1,35 @@
+9.ox
+
+argms;
+ - nombres de lignes (>= 1)		9
+ - char vide					.
+ - char obstacle				o
+ - char plein (carré)			x
+
+ nombres de colonnes : constante = 27
+
+LE PLUS EN HAUT A GAUCHE
+
+...........................
+....o......................
+............o..............
+...........................
+....o......................
+...............o...........
+...........................
+......o..............o.....
+..o.......o................
+
+
+Y
+^
+|
+0---> X
+
+
+	  Y:X
+pose  0:0
+
+tant que pas d'obstacle (X++)
+	pose 1:0 jusqu'a size X, si obstacle avant X -1;
+

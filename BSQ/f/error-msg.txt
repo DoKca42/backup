@@ -1,0 +1,10 @@
+reading_standard_input.c:31:2: error: implicit declaration of function 'clear_buffer' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        clear_buffer(buf);
+        ^
+reading_standard_input.c:46:6: error: conflicting types for 'clear_buffer'
+void    clear_buffer(char *buf)
+        ^
+reading_standard_input.c:31:2: note: previous implicit declaration is here
+        clear_buffer(buf);
+        ^
+2 errors generated.

@@ -1,0 +1,7 @@
+cc -Wall -Wextra -Werror    -c -o main.o main.c
+cc -Wall -Wextra -Werror    -c -o ft_functional.o ft_functional.c
+cc -Wall -Wextra -Werror    -c -o is_file_valid.o is_file_valid.c
+cc -Wall -Wextra -Werror    -c -o map.o map.c
+cc -Wall -Wextra -Werror    -c -o parsing.o parsing.c
+cc -Wall -Wextra -Werror    -c -o find_square.o find_square.c
+gcc -Wall -Wextra -Werror main.o ft_functional.o is_file_valid.o map.o parsing.o find_square.o -o bsq

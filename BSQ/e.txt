@@ -1,0 +1,42 @@
+Ici est de savoir comment le faire dans le la quantité optimale de temps O(nm). Ce qui est construit sur @dukeling l'intuition que vous n'avez jamais besoin de vérifier une solution de taille de moins que votre courant connu la meilleure solution.
+
+La clé est d'être en mesure de construire une structure de données qui peut répondre à cette requête en O(1) fois.
+
+    Est-il un obstacle dans le carré dont le coin supérieur gauche est en r, c et a taille k?
+
+Pour résoudre ce problème, nous serons à répondre un peu plus difficile question, également en O(1).
+
+    Quel est le nombre d'éléments dans le rectangle à partir de r1, c1 r2 c2?
+
+Il est facile de répondre à la place de l'existence de la question avec une réponse dans le rectangle count question.
+
+Pour répondre à l'rectangle count question, notez que si vous avez pré-calculé la réponse pour chaque rectangle qui commence en haut à gauche, puis vous pourrait répondre à la question générale de r1, c1 r2 c2 par une sorte de malin et d'inclusion et d'exclusion tactique en utilisant seulement des rectangles qui commencent en haut à gauche
+
+              c1   c2  
+-----------------------
+|             |    |  |
+|   A         | B  |  |
+|_____________|____|  |  r1
+|             |    |  |
+|    C        |  D |  |
+|_____________|____|  |  r2
+|_____________________|
+
+Nous voulons le nombre de choses à l'intérieur D. En termes de notre pré-calculé compte à partir du haut à gauche.
+
+Count(D) = Count(A ∪ B ∪ C ∪ D) - Count(A ∪ C) - Count(A ∪ B) + Count(A)
+
+Vous pouvez pré-calculer tous haut à gauche de rectangles en O(nm) en faisant quelques petits malins ligne/colonne des sommes partielles, mais je vais laisser cela à vous.
+
+Alors répondre à la question pour le problème que vous voulez juste implique de vérifier les solutions possibles, en commençant avec des solutions qui sont au moins aussi bonnes que celles que vous connaissez le mieux. Votre meilleure en sera que meilleur jusqu'à min(n, m) fois au total, de sorte que le best_possible incrément de se produire très rarement et presque tous les carrés sera rejetée en O(1) fois.
+
+best_possible = 0
+for r in range(n):
+ for c in range(m):
+   while True:                      
+     # this looks O(min(n, m)), but it's amortized O(1) since best_possible
+     # rarely increased.      
+     if possible(r, c, best_possible+1):
+       best_possible += 1
+     else:
+       break
