@@ -69,6 +69,6 @@ void	ex05(void)
 
 int	main(void)
 {
-	ex05();
+	ex04();
 	return (0);
 }

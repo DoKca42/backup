@@ -1,0 +1,167 @@
+				FIX
+------------------------------------------
+
+- Problème avec la conversion en binaire 
+	CONFIRMÉ:
+	Number in base 26:	-gytisyy
+	Number in base 10:	-2147483648
+    Ma base 10          -2147483648
+	Number in base 2:	-10000000000000000000000000000000
+	Mon res = 			-0000000000000000000000000000000 
+	
+
+
+- Taille de cut du 1er ou dernier char
+- Autres : probablement probleme de check if good base
+
+
+    /!\   Taille de cut du 1er ou dernier char   /!\
+
+
+	TEST					MOULINETTE
+------------------------------------------
+-0				=> 		-10
+0011010010		=>		10011010010
+0011010010		=>		10011010010
+0110310			=>		(null)
+				=>		(null)
+				=>		(null)
+4505			=>				
+2322			=>				
+bjb				=>		wbjb
+
+
+
+
+
+	DIFF
+--------------------
+
+@@ -2,7 +2,7 @@$
+ 0$
+ 0$
+ -13$
+--0$
++-10$
+ 406$
+ 4040$
+ -4042$
+@@ -14,9 +14,11 @@$
+ 0$
+ 0$
+ 1$
+-0011010010$
+-0011010010$
+-0110310$
++10011010010$
++10011010010$
++(null)$
++(null)$
++(null)$
+ (null)$
+ (null)$
+ (null)$
+@@ -24,8 +26,6 @@$
+ (null)$
+ (null)$
+ (null)$
+-4505$
+-2322$
+ (null)$
+ (null)$
+ .$
+@@ -60,7 +60,7 @@$
+ Ct#g$
+ S$
+ 4$
+-bjb$
++wbjb$
+ ,$
+ 7k$
+ X$
+
+
+
+	OUTPUT
+--------------------
+
+ $> ./9mqjxfoeybu7gkvhffewveb8
+1143
+0
+0
+-13
+-0
+406
+4040
+-4042
+240354
+3
+1450
+684
+0
+0
+0
+1
+0011010010
+0011010010
+0110310
+(null)
+(null)
+(null)
+(null)
+(null)
+(null)
+(null)
+4505
+2322
+(null)
+(null)
+.
+wF0
+,@
+u
+_XM
+x$|
+V
+B
+P
+Qw
+*
+Qv"
+c
+^
+5
+w.
+.I
+7
+.
+3
+U
+0
+9
+Q
+6
+Mk8ZZK9
+/
+jGy
+o
+Ct#g
+S
+4
+bjb
+,
+7k
+X
+X;?
+6
+Ww
+/
+T
+L
+y
+(null)
+$
+9q
+de
+__^V
+x

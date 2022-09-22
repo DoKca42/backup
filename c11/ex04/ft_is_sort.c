@@ -13,7 +13,7 @@
 int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
 	int	i;
-	int c;
+	int	c;
 	int	d;
 
 	i = 1;
